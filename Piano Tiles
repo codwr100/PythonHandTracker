@@ -1,0 +1,9 @@
+
+
+//We'll need to import 4 important libraries 
+//the first library In Piano tiles, we have 4 pixel, each one is black, we need to import a library to determine rgb color of black
+import pyautogui
+pyautogui.displayMousePosiion() // DISPLAYS POSITION MOUSE IS POINTING AT AND ITS RBG VALUE this helps us identify the excact rbg value of the black pixel
+// when we pointed at a black pixel he rbg position displayed to us was RGB(0,0,0)
+
+
