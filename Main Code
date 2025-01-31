@@ -1,0 +1,20 @@
+# Import these two libraries into the code
+import CV2 //this is the opencv library which allows camera processing to occur on your device 
+from cvzone.HandTrackingModule import HandDetector //this is a custom module from cvzone It provides an easy interface to detect and track hands in real-time using a camera. The HandDetector is a pre-trained model specifically designed to detect hands in images and video streams.
+
+cap = cv2.VideoCapture(0) // this initialises the device to video from the default webcam
+
+detector = HandDetector(detectionCon=0.8, maxHands=2) //(detectionCon = 0.80) is a confidence level for detecting a hand. A value of 0.8 means that the model will only consider a hand detected if the confidence is 80% or higher, (maxHands =2) determines the number of hands the program can detect at once and its set to a maximun of 2 hands, this can be modified to any ammount you want however, id suggest keeping it at 2.
+
+while True: //keeps webcam running in infinite loop
+    success, img = cap.read() //reads single frame from webcam, (success) lets us know whther we read the frame succesfully, (img) allows us to see the image the webcam has read
+    hands, img = detector.findHands(img) //detector.findHands(img) This line processes the captured frame (img) to detect hands. hands is a list which holds  information regarding the detected hand such as if its left or right, the boundary of each hand and the centre of each hand
+    cv2.imshow("Image", img) //display image of the hand once fully modified
+    cv2.waitKey(1) //allows program to run until key press is detected for atleast a second, and programs stops if key press is detected for a second
+
+
+
+
+
+
+
